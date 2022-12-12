@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+</head>
+<body>
+    <h3>
+        {{ post.title }}
+    </h3>
+    <hr>
+    <p>
+        {% for hash in post.hashtag_set.all %}
+            {{ hash.title }}
+        {% endfor %}
+    </p>
+    <span>
+        {{ post.description }}
+    </span>
+    <hr>
+    <h6>
+        {{ post.updated_date }}
+    </h6>
+    <hr>
+    <p>
+        @ {{ post.author_id.full_name }}
+    </p>
+    {% for i in post.images.all %}
+    <img src="{{ post.images.first.image.url }}" height="100px" width="100px" alt="{{ post.images.first.title }}">
+    {% endfor %}
+</body>
+</html>
